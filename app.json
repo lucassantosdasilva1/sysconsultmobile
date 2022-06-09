@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "MobileSys",
+    "slug": "MobileSys",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
