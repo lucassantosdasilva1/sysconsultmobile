@@ -12,7 +12,17 @@ export const Container = styled.View`
   height: ${windowHeight}px;
 
   align-items: center;
-  padding: 0 4px;
 
-  background-color: ${({theme}) => theme.colors.title};
+  background-color: ${({theme}) => theme.colors.main};
+`;
+
+export const WrapProductCard = styled.View`
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 5px;
+
+  background-color: ${({theme}) => theme.colors.background_secondary};
 `;

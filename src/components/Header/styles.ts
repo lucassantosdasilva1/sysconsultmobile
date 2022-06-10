@@ -7,7 +7,7 @@ import { getStatusBarHeight} from "react-native-iphone-x-helper"
 
 export const Container = styled.View`
   width: 100%;
-  height: 80px;
+  height: 150px;
   margin-top: ${getStatusBarHeight()}px;
 
   align-items: center;
@@ -21,8 +21,9 @@ export const WrapAll = styled.View`
 `;
 
 export const Logo = styled.Image`
-  width: 167px;
-  height: 85px;
+  /* width: 167px; */
+  width: 200px;
+  height: 100px;
 `;
 
 export const ButtonReload = styled.TouchableOpacity`

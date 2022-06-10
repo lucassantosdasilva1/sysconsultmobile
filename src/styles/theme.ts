@@ -5,7 +5,7 @@ export default {
         header: '#1B1B1F',
 
         background_primary: '#C7E0F4',
-        background_secondary: '#FFFFFF',
+        background_secondary: '#425A7A',
         
         text: '#1EB3D1', //terceira cor
         text_detail: '#053764',
@@ -15,8 +15,8 @@ export default {
         star: '#2A55BE', //segunda cor
         star_org: '#6558F5',
         
-        main: '#04142D', //primeira cor
-        main_light: '#284E81',
+        main: '#3D8BF9', //primeira cor
+        main_light: '#8AC3FD',
         success: '#03B252',
         
         shape: '#E1E1E8',
@@ -24,7 +24,8 @@ export default {
     },
 
     fonts: {
-        primary_400: 'Roboto_400Regular,',
+        primary_300: 'Roboto_300Light',
+        primary_400: 'Roboto_400Regular',
         primary_500: 'Roboto_500Medium',
         primary_700: 'Roboto_700Bold',
         

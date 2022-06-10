@@ -12,7 +12,6 @@ export function Header() {
         <Container>
             <WrapAll>
                 <Logo source={require('../../assets/logo.jpg')} />
-                
             </WrapAll>
         </Container>
     )

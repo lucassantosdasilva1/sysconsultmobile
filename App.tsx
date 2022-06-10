@@ -12,6 +12,7 @@ import { Loading } from "./src/components/Loading";
 
 import {
   useFonts,
+  Roboto_300Light,
   Roboto_400Regular,
   Roboto_500Medium,
   Roboto_700Bold,
@@ -19,6 +20,7 @@ import {
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    Roboto_300Light,
     Roboto_400Regular,
     Roboto_500Medium,
     Roboto_700Bold,
@@ -28,12 +30,10 @@ export default function App() {
     return <Loading />;
   }
 
-
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}> 
       <ProductProvider>
-      	<Routes />
+      	<Routes/>
         <StatusBar style="auto" />
       </ProductProvider>
     </ThemeProvider>

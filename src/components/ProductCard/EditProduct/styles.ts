@@ -114,7 +114,6 @@ export const Button = styled(TouchableOpacity)<PropsButton>`
 
 
 export const ButtonText = styled.Text<PropsText>`
-
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size: ${RFValue(14)}px;
     color: ${({ colorText }) => colorText};
