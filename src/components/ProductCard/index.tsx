@@ -9,21 +9,14 @@ import {
   WrapPhoto,
   Photo,
   WrapInfos,
-  WrapTitlesType,
   Title,
+  WrapEstoque,
   Estoque,
-  WrapDescription,
-  Description,
-  WrapRatingPrice,
-  WrapRate,
-  RateComponent,
+  Price,
   WrapOptionsPrice,
   WrapOptions,
   DeleteButton,
   DeleteIcon,
-  Price,
-  CreatedAt,
-  CreatedAtText,
 } from "./styles";
 
 //import { DTO,  } from "../../services";
@@ -118,11 +111,15 @@ export function ProductCard({ dataOfApi }: data) {
 
         <WrapInfos>
           <Title>
-            {data.nome.substring(0, 15)}
-            {data.nome.length > 15 ? "..." : ""}
+            {data.nome.substring(0, 42)}
+            {data.nome.length > 42 ? "..." : ""}
           </Title>
-          <Estoque>{data.estoque}</Estoque>
+          
           <Price>R$ {data.preco}</Price>
+
+          <WrapEstoque>
+            <Estoque>Restam apenas {data.estoque}</Estoque>
+          </WrapEstoque>
         </WrapInfos>
 
         <WrapOptionsPrice>

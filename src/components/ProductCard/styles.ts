@@ -1,16 +1,17 @@
+import { Button, Dimensions } from "react-native";
 import styled from "styled-components/native";
-
+import { RFValue } from "react-native-responsive-fontsize";
 import { FontAwesome5, Ionicons, Octicons } from "@expo/vector-icons";
 
-import { RFValue } from "react-native-responsive-fontsize";
-import { BorderlessButton, TouchableOpacity } from 'react-native-gesture-handler';
-import { Button } from "react-native";
+const windowWidth = Dimensions.get('window').width;
 
 export const EditButton = styled.TouchableOpacity`
+  width: ${windowWidth}px;
 `;
 
 export const Container = styled.View`
   height: 125px;
+  
   background-color: #ffff;
   flex-direction: row;
 
@@ -22,29 +23,8 @@ export const Container = styled.View`
   background-color: transparent;
 `;
 
-export const CreatedAt = styled.View`
-  height: 17px;
-  padding-right: 10px;
-
-  width: 100%;
-
-  background-color: #ffff;
-
-  flex-direction: row;
-  justify-content: flex-end;
-
-`;
-
-export const CreatedAtText = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.primary_700};
-  font-size: ${RFValue(10)}px;
-  color: ${({ theme }) => theme.colors.title};
-
-  font-style: italic;
-`;
-
 export const WrapPhoto = styled.View`
-  width: 24%;
+  width: 25%;
   height: 100%;
   background-color: cadetblue;
 
@@ -63,29 +43,30 @@ export const Photo = styled.Image`
 export const WrapInfos = styled.View`
   /* flex: 1; */
   height: 100%;
-  width: 70%;
+  width: 60%;
 
   background-color: #FFF;
 
-  padding: 0px 10px;
-`;
-
-export const WrapTitlesType = styled.View`
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
+  padding: 5px 10px;
 `;
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primary_400};
-  font-size: ${RFValue(16)}px;
+  font-size: ${RFValue(12)}px;
   color: ${({ theme }) => theme.colors.title};
 
   flex-wrap: wrap;
 `;
 
+export const WrapEstoque = styled.View`
+  align-items: flex-end;
+`;
 export const Estoque = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primary_400};
-  font-size: ${RFValue(16)}px;
+  font-size: ${RFValue(12)}px;
+  font-style: italic;
+
+
   color: ${({ theme }) => theme.colors.title};
 
   flex-wrap: wrap;
@@ -97,40 +78,19 @@ export const Price = styled.Text`
   color: ${({ theme }) => theme.colors.title};
 `;
 
-
-
-export const WrapDescription = styled.View``;
-
-export const Description = styled.Text``;
-
-export const WrapRatingPrice = styled.View``;
-
-export const WrapRate = styled.View`
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* align-items: center; */
-`;
-
-export const RateComponent = styled(Octicons)`
-  margin-right: 2px;
-  color: ${({ theme }) => theme.colors.text};
-`;
-
 export const WrapOptionsPrice = styled.View`
 
-  height: 150px;
-  width: 20px;
+  height: 125px;
+  width: 15%;
 
   justify-items: center;
   align-items: center;
 
-  background-color: yellowgreen;
+  background-color: ${({ theme }) => theme.colors.attention};;
 `;
 
 export const WrapOptions = styled.View`
   margin-top: 50px;
-
-  background-color: black;
 `;
 
 export const DeleteButton = styled.TouchableOpacity`
