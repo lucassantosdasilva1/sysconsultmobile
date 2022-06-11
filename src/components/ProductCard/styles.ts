@@ -67,7 +67,8 @@ export const Title = styled.Text`
 `;
 
 export const WrapEstoque = styled.View`
-  align-items: flex-end;
+    margin-top: ${RFValue(22)}px;
+    align-items: flex-end;
 `;
 export const Estoque = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primary_400};
