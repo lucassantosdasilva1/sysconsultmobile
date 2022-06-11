@@ -37,7 +37,7 @@ export function DeleteProduct({id, closeModal} : DeleteProps) {
       <Body>
 
         <QuestionContainer>
-          <ConfirmDelete>Are you sure you want to delete this item?</ConfirmDelete>
+          <ConfirmDelete>Você tem certeza que deseja apagar este produto?</ConfirmDelete>
         </QuestionContainer>
 
         <ButtonContainer>

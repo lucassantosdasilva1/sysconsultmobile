@@ -70,7 +70,7 @@ export const NoButton = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
 
-  background-color: #6558F5;
+  background-color: ${({theme}) => theme.colors.main};
   border-width: 1px;
 
   margin-right: 15px;
