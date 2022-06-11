@@ -6,6 +6,7 @@ import { FontAwesome5, Ionicons, Octicons } from "@expo/vector-icons";
 const windowWidth = Dimensions.get('window').width;
 
 export const MainContainer = styled.View`
+  flex: 1;
   flex-direction: row;
 `;
 
@@ -85,23 +86,22 @@ export const Price = styled.Text`
   color: ${({ theme }) => theme.colors.title};
 `;
 
-export const WrapOptions = styled.TouchableOpacity`
+export const WrapDelete = styled.TouchableOpacity`
   height: 125px;
   width: 15%;
 
-  justify-items: center;
   align-items: center;
+  justify-content: center;
 
   background-color: ${({ theme }) => theme.colors.attention};;
-`;
-
-export const DeleteButton = styled.TouchableOpacity`
-
 `;
 
 export const DeleteIcon = styled(Ionicons).attrs({
   name: "md-trash-sharp",
   size: RFValue(20),
   color: "#FBABA0",
-  })``;
+  })
+  `
+  
+  `;
 

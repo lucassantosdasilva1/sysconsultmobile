@@ -14,8 +14,7 @@ import {
   WrapEstoque,
   Estoque,
   Price,
-  WrapOptions,
-  DeleteButton,
+  WrapDelete,
   DeleteIcon,
 } from "./styles";
 
@@ -122,19 +121,17 @@ export function ProductCard({ product }: product) {
           </WrapInfos>
         </Container>
     
-    
-    
         {/* 
       <CreatedAt>
           <CreatedAtText>Created at {timeAgo} {wordOfAgo}</CreatedAtText>
       </CreatedAt> */}
       </EditProductButton>
-      <WrapOptions onPress={handleModalDeleteOpen}>
+      <WrapDelete onPress={handleModalDeleteOpen}>
         <DeleteIcon />
         <Modal visible={visibleDeleteModal} transparent>
           <DeleteProduct id={product.id} closeModal={handleModalDeleteClose} />
         </Modal>
-      </WrapOptions>
+      </WrapDelete>
     </MainContainer>
   );
 }
