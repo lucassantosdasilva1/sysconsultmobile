@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, FlatList, RefreshControl } from "react-native";
-import { useProduct } from "../../hooks/ProductContextAPI";
+import { useProduct } from "../../Context/ProductContextAPI";
 import { api } from "../../service/api";
 
 import { Header } from "../../components/Header/";

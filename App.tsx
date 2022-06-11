@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 
 import theme from "./src/styles/theme";
 import { Routes } from "./src/routes";
-import { ProductProvider } from "./src/hooks/ProductContextAPI";
+import { ProductProvider } from "./src/Context/ProductContextAPI";
 
 import { Loading } from "./src/components/Loading";
 

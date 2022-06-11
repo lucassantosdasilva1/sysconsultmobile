@@ -1,7 +1,6 @@
 //Consertar a tipagem
 //Fazer a edicao, exclusao, adicao por meio do context
 
-
 import React, { createContext, ReactNode, useContext, useEffect, useState} from "react";
 import { ProductDTO } from "../DTO/ProductDTO";
 import { api } from "../service/api";

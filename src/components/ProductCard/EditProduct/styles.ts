@@ -53,9 +53,9 @@ export const TitleHeader = styled.Text`
 export const Label = styled.Text`
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size: ${RFValue(14)}px;
-    color: ${({ theme }) => theme.colors.background_secondary};
+    color: ${({ theme }) => theme.colors.shape};
 
-    background-color: ${({ theme }) => theme.colors.text_detail};
+    background-color: ${({ theme }) => theme.colors.main};
 
     border-radius: 5px;
     padding: 2px 5px;
@@ -76,14 +76,14 @@ export const ContentInput = styled(TextInput)`
 
     border-radius: 5px;
     border-width: 1px;
-    border-color: #808080;
+    border-color: ${({ theme }) => theme.colors.main};
 
     padding: 10px;
     margin-left: 10px;
 
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size: ${RFValue(14)}px;
-    color: ${({ theme }) => theme.colors.text_detail};
+    color: ${({ theme }) => theme.colors.header};
 `;
 
 export const Footer = styled.View`

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 // import * as Updates from 'expo-updates';
 import { NativeModules } from "react-native";
+import { useTheme } from 'styled-components';
 
 // import { EditProps, getProducts, sendEditProduct } from '../../../services';
 
@@ -37,6 +38,8 @@ export function EditProduct({ id, nome, estoque, preco, closeModal} : Props ) {
     const [nomeEditado, setNome] = useState(nome);
     const [estoqueEditado, setEstoque] = useState(estoque.toString());
     const [precoEditado, setPreco] = useState(preco.toString());
+
+    const theme = useTheme();
     
     // let dataToSent : EditProps = {
     //     nome: nomeValue,
@@ -54,9 +57,9 @@ export function EditProduct({ id, nome, estoque, preco, closeModal} : Props ) {
     //     await sendEditProduct(id, dataToSent);
     // }    
 
-    // function handleCancel(){
-    //     closeModal();
-    // }
+    function handleCancel(){
+        closeModal();
+    }
 
     return (
     <Container>
@@ -88,12 +91,12 @@ export function EditProduct({ id, nome, estoque, preco, closeModal} : Props ) {
 
             <Footer>
                 {/* <Button onPress={() => handlePost()} colorBackground='#6558F5'  style={{ borderWidth: 1, marginRight: 10}}> */}
-                <Button onPress={() =>{}} colorBackground='#6558F5'  style={{ borderWidth: 1, marginRight: 10}}>
+                <Button onPress={() =>{}} colorBackground={theme.colors.main}  style={{ borderWidth: 1, marginRight: 10}}>
                     <ButtonText colorText='white'>Editar</ButtonText>
                 </Button>
 
-                {/* <Button onPress={() => handleCancel()} colorBackground='' style={{ borderWidth: 1}}> */}
-                <Button onPress={() => {}} colorBackground='' style={{ borderWidth: 1}}>
+                <Button onPress={() => handleCancel()} colorBackground='' style={{ borderWidth: 1}}>
+                {/* <Button onPress={() => {}} colorBackground='' style={{ borderWidth: 1}}> */}
                     <ButtonText colorText='black'>Cancelar</ButtonText>
                 </Button>
             </Footer>
