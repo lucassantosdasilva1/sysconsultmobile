@@ -132,7 +132,8 @@ export function ProductCard({ dataOfApi }: data) {
 
       <WrapOptionsPrice onPress={handleModalDeleteOpen}>
         <WrapOptions>
-          <DeleteIcon name="md-trash-sharp" size={20} color="#4E2A78" />
+          <DeleteIcon name="md-trash-sharp" size={20} color="#FBABA0" />
+          {/* <DeleteIcon name="md-trash-sharp" size={20} color="#6CFA61" /> */}
 
           <Modal visible={visibleDeleteModal} transparent>
             <DeleteProduct id={data.id} closeModal={handleModalDeleteClose} />

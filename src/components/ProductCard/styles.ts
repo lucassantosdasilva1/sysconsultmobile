@@ -65,7 +65,6 @@ export const Title = styled.Text`
 
   flex-wrap: wrap;
 
-  background-color: yellow;
 `;
 
 export const WrapEstoque = styled.View`
