@@ -4,6 +4,7 @@ import { EditProduct } from "./EditProduct";
 import { DeleteProduct } from "./DeleteProduct";
 
 import {
+  MainContainer,
   EditButton,
   Container,
   WrapPhoto,
@@ -95,49 +96,49 @@ export function ProductCard({ dataOfApi }: data) {
   }, []);
 
   return (
-    <EditButton onPress={handleModalEditOpen}>
-      <Modal visible={visibleEditModal} transparent>
-        <EditProduct
-          closeModal={handleModalEditClose}
-          id={data.id}
-          nome={data.nome}
-          estoque={data.estoque}
-          preco={data.preco}
-        />
-      </Modal>
+    <MainContainer>
+      <EditButton onPress={handleModalEditOpen}>
+        <Modal visible={visibleEditModal} transparent>
+          <EditProduct
+            closeModal={handleModalEditClose}
+            id={data.id}
+            nome={data.nome}
+            estoque={data.estoque}
+            preco={data.preco}
+          />
+        </Modal>
 
-      <Container>
-        <WrapPhoto>{/* <Photo source={getImage(data)} /> */}</WrapPhoto>
+        <Container>
+          <WrapPhoto>{/* <Photo source={getImage(data)} /> */}</WrapPhoto>
 
-        <WrapInfos>
-          <Title>
-            {data.nome.substring(0, 42)}
-            {data.nome.length > 42 ? "..." : ""}
-          </Title>
-          
-          <Price>R$ {data.preco}</Price>
+          <WrapInfos>
+            <Title>
+              {data.nome.substring(0, 80)}
+              {data.nome.length > 75 ? "..." : ""}
+            </Title>
 
-          <WrapEstoque>
-            <Estoque>Restam apenas {data.estoque}</Estoque>
-          </WrapEstoque>
-        </WrapInfos>
+            <Price>R$ {data.preco}</Price>
 
-        <WrapOptionsPrice>
-          <WrapOptions>
-            <DeleteButton onPress={handleModalDeleteOpen}>
-              <DeleteIcon name="md-trash-sharp" size={20} color="red" />
-            </DeleteButton>
-
-            <Modal visible={visibleDeleteModal} transparent>
-              <DeleteProduct id={data.id} closeModal={handleModalDeleteClose} />
-            </Modal>
-          </WrapOptions>
-        </WrapOptionsPrice>
-      </Container>
-      {/* 
+            <WrapEstoque>
+              <Estoque>Restam apenas {data.estoque}</Estoque>
+            </WrapEstoque>
+          </WrapInfos>
+        </Container>
+        {/* 
       <CreatedAt>
           <CreatedAtText>Created at {timeAgo} {wordOfAgo}</CreatedAtText>
       </CreatedAt> */}
-    </EditButton>
+      </EditButton>
+
+      <WrapOptionsPrice onPress={handleModalDeleteOpen}>
+        <WrapOptions>
+          <DeleteIcon name="md-trash-sharp" size={20} color="#4E2A78" />
+
+          <Modal visible={visibleDeleteModal} transparent>
+            <DeleteProduct id={data.id} closeModal={handleModalDeleteClose} />
+          </Modal>
+        </WrapOptions>
+      </WrapOptionsPrice>
+    </MainContainer>
   );
 }

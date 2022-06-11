@@ -5,12 +5,18 @@ import { FontAwesome5, Ionicons, Octicons } from "@expo/vector-icons";
 
 const windowWidth = Dimensions.get('window').width;
 
-export const EditButton = styled.TouchableOpacity`
+export const MainContainer = styled.View`
   width: ${windowWidth}px;
+  flex-direction: row;
+`;
+
+export const EditButton = styled.TouchableOpacity`
+  width: 85%;
 `;
 
 export const Container = styled.View`
   height: 125px;
+  width: 100%;
   
   background-color: #ffff;
   flex-direction: row;
@@ -43,7 +49,7 @@ export const Photo = styled.Image`
 export const WrapInfos = styled.View`
   /* flex: 1; */
   height: 100%;
-  width: 60%;
+  width: 75%;
 
   background-color: #FFF;
 
@@ -55,7 +61,11 @@ export const Title = styled.Text`
   font-size: ${RFValue(12)}px;
   color: ${({ theme }) => theme.colors.title};
 
+  height: 40px;
+
   flex-wrap: wrap;
+
+  background-color: yellow;
 `;
 
 export const WrapEstoque = styled.View`
@@ -78,7 +88,7 @@ export const Price = styled.Text`
   color: ${({ theme }) => theme.colors.title};
 `;
 
-export const WrapOptionsPrice = styled.View`
+export const WrapOptionsPrice = styled.TouchableOpacity`
 
   height: 125px;
   width: 15%;
