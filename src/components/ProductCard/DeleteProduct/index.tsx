@@ -1,8 +1,5 @@
-import React from 'react';
-
-export function deleteProduct(id){
-  return id;
-}
+import React from "react";
+import { useProduct } from "../../../Context/ProductContextAPI";
 
 import {
   Container,
@@ -14,30 +11,38 @@ import {
   YesText,
   NoButton,
   NoText,
-} from './styles';
+} from "./styles";
 
 interface DeleteProps {
-  id: number,
-  closeModal: () => void
+  id: number;
+  closeModal: () => void;
 }
 
-export function DeleteProduct({id, closeModal} : DeleteProps) {
-  
-  function handleDelete(){
-    deleteProduct(id);
-    closeModal()
+export function DeleteProduct({ id, closeModal }: DeleteProps) {
+  const { deleteProduct } = useProduct();
+
+  async function handleDelete() {
+    try {
+      console.log("id------------: ", id);
+      await deleteProduct(id);
+    } catch (error) {
+      throw error;
+    } finally {
+      closeModal();
+    }
   }
 
-  function handleNoDelete(){
+  function handleNoDelete() {
     closeModal();
   }
 
   return (
     <Container>
       <Body>
-
         <QuestionContainer>
-          <ConfirmDelete>Você tem certeza que deseja apagar este produto?</ConfirmDelete>
+          <ConfirmDelete>
+            Você tem certeza que deseja apagar este produto?
+          </ConfirmDelete>
         </QuestionContainer>
 
         <ButtonContainer>
@@ -48,7 +53,6 @@ export function DeleteProduct({id, closeModal} : DeleteProps) {
             <NoText>NO</NoText>
           </NoButton>
         </ButtonContainer>
-        
       </Body>
     </Container>
   );

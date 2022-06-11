@@ -12,9 +12,25 @@ import { ProductCard } from "../../components/ProductCard";
 export function Home() {
   const [isLoading, setisLoading] = useState(false);
 
-  const { products } = useProduct();
+  const { products, getProducts, setProducts } = useProduct();
+  
   console.log("Products vindo do Context: ", products);
 
+  async function getProductsAPI() {
+    setisLoading(true);
+    try {
+      const { data } = await getProducts();
+      setProducts(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setisLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getProductsAPI();
+  }, []);
   return (
     <Container>
       <Header />
@@ -28,10 +44,10 @@ export function Home() {
             style={{ width: "100%" }}
             data={products}
             keyExtractor={(item, index) => item.id.toString()}
-            renderItem={({ item }) => <ProductCard dataOfApi={item} />}
-            // refreshControl={
-            //   <RefreshControl refreshing={isLoading} onRefresh={} />
-            // }
+            renderItem={({ item }) => <ProductCard product={item} />}
+            refreshControl={
+              <RefreshControl refreshing={isLoading} onRefresh={getProductsAPI} />
+            }
           />
         </WrapProductCard>
       )}

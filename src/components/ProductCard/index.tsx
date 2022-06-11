@@ -5,7 +5,7 @@ import { DeleteProduct } from "./DeleteProduct";
 
 import {
   MainContainer,
-  EditButton,
+  EditProductButton,
   Container,
   WrapPhoto,
   Photo,
@@ -14,7 +14,6 @@ import {
   WrapEstoque,
   Estoque,
   Price,
-  WrapOptionsPrice,
   WrapOptions,
   DeleteButton,
   DeleteIcon,
@@ -28,28 +27,29 @@ import {
   minutesToHours,
 } from "date-fns";
 import { ProductDTO } from "../../DTO/ProductDTO";
+import { useProduct } from "../../Context/ProductContextAPI";
 //import { useDispatch } from "react-redux";
-//import { setDataAction } from "../../redux/dataSlice";
+//import { setproductAction } from "../../redux/productSlice";
 
-interface data {
-  dataOfApi: ProductDTO;
+interface product {
+  product: ProductDTO;
 }
 
-export function ProductCard({ dataOfApi }: data) {
-  const [rating, setRating] = useState([1, 2, 3, 4, 5]);
+export function ProductCard({ product }: product) {
   const [timeAgo, setTimeAgo] = useState(Number);
   const [wordOfAgo, setWordOfAgo] = useState(String);
 
   const [visibleEditModal, setVisibleEditModal] = useState(false);
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false);
 
-  const [data, setData] = useState(dataOfApi);
+  const {editProduct} = useProduct()
 
+  // const product = product;
   // const dispatch = useDispatch();
 
   //function to receive timestamp and return time ago in days or hours or minutes
   function calculateHoursAgo() {
-    const dateOfPost = new Date(data.createdAt);
+    const dateOfPost = new Date(product.createdAt);
 
     const today = new Date();
 
@@ -97,49 +97,44 @@ export function ProductCard({ dataOfApi }: data) {
 
   return (
     <MainContainer>
-      <EditButton onPress={handleModalEditOpen}>
+      <EditProductButton onPress={handleModalEditOpen}>
         <Modal visible={visibleEditModal} transparent>
           <EditProduct
             closeModal={handleModalEditClose}
-            id={data.id}
-            nome={data.nome}
-            estoque={data.estoque}
-            preco={data.preco}
+            product={product}
           />
         </Modal>
 
         <Container>
-          <WrapPhoto>{/* <Photo source={getImage(data)} /> */}</WrapPhoto>
+          <WrapPhoto>{/* <Photo source={getImage(product)} /> */}</WrapPhoto>
 
           <WrapInfos>
             <Title>
-              {data.nome.substring(0, 80)}
-              {data.nome.length > 75 ? "..." : ""}
+              {product.nome.substring(0, 63)}
+              {product.nome.length > 62 ? "..." : ""}
             </Title>
 
-            <Price>R$ {data.preco}</Price>
+            <Price>R$ {product.preco}</Price>
 
             <WrapEstoque>
-              <Estoque>Restam apenas {data.estoque}</Estoque>
+              <Estoque>Restam apenas {product.estoque}</Estoque>
             </WrapEstoque>
           </WrapInfos>
         </Container>
+    
+    
+    
         {/* 
       <CreatedAt>
           <CreatedAtText>Created at {timeAgo} {wordOfAgo}</CreatedAtText>
       </CreatedAt> */}
-      </EditButton>
-
-      <WrapOptionsPrice onPress={handleModalDeleteOpen}>
-        <WrapOptions>
-          <DeleteIcon name="md-trash-sharp" size={20} color="#FBABA0" />
-          {/* <DeleteIcon name="md-trash-sharp" size={20} color="#6CFA61" /> */}
-
-          <Modal visible={visibleDeleteModal} transparent>
-            <DeleteProduct id={data.id} closeModal={handleModalDeleteClose} />
-          </Modal>
-        </WrapOptions>
-      </WrapOptionsPrice>
+      </EditProductButton>
+      <WrapOptions onPress={handleModalDeleteOpen}>
+        <DeleteIcon />
+        <Modal visible={visibleDeleteModal} transparent>
+          <DeleteProduct id={product.id} closeModal={handleModalDeleteClose} />
+        </Modal>
+      </WrapOptions>
     </MainContainer>
   );
 }

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-// import * as Updates from 'expo-updates';
-import { NativeModules } from "react-native";
-import { useTheme } from 'styled-components';
+import { NativeModules, TextInputProps } from "react-native";
+import { useTheme } from "styled-components";
 
-// import { EditProps, getProducts, sendEditProduct } from '../../../services';
+import * as yup from "yup";
 
-// import { Question } from '../CreatePost/styles';
+import { useForm, Controller, Control } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-// import { EditPostAPI, EditProps } from '../../services/api';
+import { useProduct } from "../../../Context/ProductContextAPI";
+
+import { ProductDTO } from "../../../DTO/ProductDTO";
 
 import {
   Container,
@@ -18,92 +20,115 @@ import {
   TitleHeader,
   ContentWrap,
   Label,
-  ContentInput,
   Footer,
   Button,
   ButtonText,
-} from './styles';
-// import { useDispatch } from 'react-redux';
-// import { setDataAction } from '../../../redux/dataSlice';
+} from "./styles";
+import { ControlledInput } from "./ControlledInput";
+
 
 interface Props {
-    id: number,
-    nome: string,
-    estoque: number,
-    preco: number,
-    closeModal: () => void;
+  product: ProductDTO;
+  closeModal: () => void;
 }
 
-export function EditProduct({ id, nome, estoque, preco, closeModal} : Props ) {
-    const [nomeEditado, setNome] = useState(nome);
-    const [estoqueEditado, setEstoque] = useState(estoque.toString());
-    const [precoEditado, setPreco] = useState(preco.toString());
+interface ProductToEdit {
+  
+}
 
-    const theme = useTheme();
-    
-    // let dataToSent : EditProps = {
-    //     nome: nomeValue,
-    //     estoque: estoqueValue,
-    //     preco: Number(precoValue),
-    // }
+export function EditProduct({ product, closeModal }: Props) {
+  const theme = useTheme();
 
-    // async function reloadApp () {
-    //     await Updates.reloadAsync();
-    // }    
-    
-    // async function handlePost(){
-    //     //NativeModules.DevSettings.reload();
-    //     closeModal();
-    //     await sendEditProduct(id, dataToSent);
-    // }    
+  const schema = yup.object().shape({
+    name: yup.string().default(product.nome).required("Campo Obrigatório"),
+    estoque: yup
+      .number()
+      .default(product.estoque)
+      .required("Campo Obrigatório"),
+    preco: yup
+      .number()
+      .default(Number(product.preco))
+      .required("Campo Obrigatório"),
+  });
 
-    function handleCancel(){
-        closeModal();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const { editProduct } = useProduct();
+
+  async function handlePut(values: any) {
+    try {
+      await editProduct({ ...product, ...values });
+      closeModal();
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    return (
+  function handleCancel() {
+    closeModal();
+  }
+
+  return (
     <Container>
-        <ContainerPostCreation>
+      <ContainerPostCreation>
+        <Body>
+          <Header>
+            <TitleHeader>Editar Produto</TitleHeader>
+          </Header>
 
-            <Body>
-                <Header>
-                    <TitleHeader>Editar Produto</TitleHeader>
-                </Header>
-                {/* <Question>What's on your mind?</Question> */}
+          <ContentWrap>
+            <Label>Nome</Label>
+            <ControlledInput
+              control={control}
+              name="name"
+              error={errors.name}
+              defaultValue={product.nome}
+            />
+          </ContentWrap>
 
+          <ContentWrap>
+            <Label>Estoque</Label>
+            <ControlledInput
+              control={control}
+              name="estoque"
+              error={errors.estoque}
+              defaultValue={String(product.estoque)}
+            />
+          </ContentWrap>
 
+          <ContentWrap>
+            <Label>preco</Label>
+            <ControlledInput
+              control={control}
+              name="preco"
+              error={errors.preco}
+              defaultValue={String(product.preco)}
+            />
+          </ContentWrap>
+        </Body>
 
-                <ContentWrap>
-                    <Label>Nome</Label>
-                    <ContentInput placeholder="Type your post title here" onChangeText={setNome}>{nome}</ContentInput>
-                </ContentWrap>
+        <Footer>
+          <Button
+            onPress={handleSubmit(handlePut)}
+            colorBackground={theme.colors.main}
+            style={{ borderWidth: 1, marginRight: 10 }}
+          >
+            <ButtonText colorText="white">Editar</ButtonText>
+          </Button>
 
-                <ContentWrap>
-                    <Label>Estoque</Label>
-                    <ContentInput keyboardType='decimal-pad' placeholder="Content here" textAlignVertical="top" multiline onChangeText={setEstoque}>{estoque}</ContentInput>
-                </ContentWrap>
-
-                <ContentWrap>
-                    <Label>preco</Label>
-                    <ContentInput keyboardType='decimal-pad' placeholder="Content here" textAlignVertical="top" multiline onChangeText={setPreco}>{preco}</ContentInput>
-                </ContentWrap>
-            </Body>
-
-            <Footer>
-                {/* <Button onPress={() => handlePost()} colorBackground='#6558F5'  style={{ borderWidth: 1, marginRight: 10}}> */}
-                <Button onPress={() =>{}} colorBackground={theme.colors.main}  style={{ borderWidth: 1, marginRight: 10}}>
-                    <ButtonText colorText='white'>Editar</ButtonText>
-                </Button>
-
-                <Button onPress={() => handleCancel()} colorBackground='' style={{ borderWidth: 1}}>
-                {/* <Button onPress={() => {}} colorBackground='' style={{ borderWidth: 1}}> */}
-                    <ButtonText colorText='black'>Cancelar</ButtonText>
-                </Button>
-            </Footer>
-
-            </ContainerPostCreation>
-       
-
+          <Button
+            onPress={() => handleCancel()}
+            colorBackground=""
+            style={{ borderWidth: 1 }}
+          >
+            <ButtonText colorText="black">Cancelar</ButtonText>
+          </Button>
+        </Footer>
+      </ContainerPostCreation>
     </Container>
   );
 }

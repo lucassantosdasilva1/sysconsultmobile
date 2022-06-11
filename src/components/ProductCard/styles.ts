@@ -6,17 +6,15 @@ import { FontAwesome5, Ionicons, Octicons } from "@expo/vector-icons";
 const windowWidth = Dimensions.get('window').width;
 
 export const MainContainer = styled.View`
-  width: ${windowWidth}px;
   flex-direction: row;
 `;
 
-export const EditButton = styled.TouchableOpacity`
+export const EditProductButton = styled.TouchableOpacity`
   width: 85%;
 `;
 
 export const Container = styled.View`
   height: 125px;
-  width: 100%;
   
   background-color: #ffff;
   flex-direction: row;
@@ -87,8 +85,7 @@ export const Price = styled.Text`
   color: ${({ theme }) => theme.colors.title};
 `;
 
-export const WrapOptionsPrice = styled.TouchableOpacity`
-
+export const WrapOptions = styled.TouchableOpacity`
   height: 125px;
   width: 15%;
 
@@ -98,13 +95,13 @@ export const WrapOptionsPrice = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.attention};;
 `;
 
-export const WrapOptions = styled.View`
-  margin-top: 50px;
-`;
-
 export const DeleteButton = styled.TouchableOpacity`
 
 `;
 
-export const DeleteIcon = styled(Ionicons)``;
+export const DeleteIcon = styled(Ionicons).attrs({
+  name: "md-trash-sharp",
+  size: RFValue(20),
+  color: "#FBABA0",
+  })``;
 

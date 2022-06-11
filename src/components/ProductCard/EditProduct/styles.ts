@@ -50,7 +50,18 @@ export const TitleHeader = styled.Text`
     margin-bottom: 10px;
 `;
 
+export const ContentWrap = styled.View`
+    flex-direction: row;
+
+    margin-top: 10px;
+
+    justify-content: space-between;
+`;
+
 export const Label = styled.Text`
+    height: 100%;
+    width: 20%;
+
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size: ${RFValue(14)}px;
     color: ${({ theme }) => theme.colors.shape};
@@ -61,30 +72,6 @@ export const Label = styled.Text`
     padding: 2px 5px;
 `;
 
-export const ContentWrap = styled.View`
-    flex-direction: row;
-
-    margin-top: 10px;
-
-    justify-content: flex-end;
-    align-items: center;
-`;
-
-export const ContentInput = styled(TextInput)`
-    height: 40px;
-    width: 300px;
-
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: ${({ theme }) => theme.colors.main};
-
-    padding: 10px;
-    margin-left: 10px;
-
-    font-family: ${({ theme }) => theme.fonts.primary_500};
-    font-size: ${RFValue(14)}px;
-    color: ${({ theme }) => theme.colors.header};
-`;
 
 export const Footer = styled.View`
     height: 40px;
