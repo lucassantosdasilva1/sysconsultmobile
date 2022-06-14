@@ -42,7 +42,7 @@ Projeto desenvolvido durante a avaliação para o teste de Desenvolvedor React N
 
 Este projeto é divido em duas partes:
 1. [Backend](https://github.com/lucassantosdasilva1/sysconsultbackendOK) 
-2. [Mobile](https://github.com/lucassantosdasilva1/BeTruckApp) ([link](https://github.com/lucassantosdasilva1/BeTruckApp)do github)
+2. [Mobile](https://github.com/lucassantosdasilva1/sysconsultmobile) ([link](https://github.com/lucassantosdasilva1/sysconsultmobile) do github)
 
 💡O Mobile precisa que o Backend esteja sendo executado para funcionar (No nosso caso localhost).
 
