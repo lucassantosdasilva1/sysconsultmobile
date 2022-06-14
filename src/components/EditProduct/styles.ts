@@ -20,8 +20,6 @@ export const Container = styled.View`
     justify-content: center;
 `;
 
-
-
 export const ContainerPostCreation = styled.View`
     height: 360px;
     width: 100%;
@@ -69,7 +67,7 @@ export const Label = styled.Text`
     background-color: ${({ theme }) => theme.colors.main};
 
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 8px
 `;
 
 
@@ -82,6 +80,7 @@ export const Footer = styled.View`
     flex-direction: row;
 
     justify-content: flex-end;
+
 
     background-color: white;
 `;

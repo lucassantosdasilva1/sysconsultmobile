@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { EditProduct } from "./EditProduct";
-import { DeleteProduct } from "./DeleteProduct";
+import { EditProduct } from "../EditProduct";
+import { DeleteProduct } from "../DeleteProduct";
 
 import {
   MainContainer,

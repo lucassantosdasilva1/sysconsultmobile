@@ -8,9 +8,9 @@ import * as yup from "yup";
 import { useForm, Controller, Control } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { useProduct } from "../../../Context/ProductContextAPI";
+import { useProduct } from "../../Context/ProductContextAPI";
 
-import { ProductDTO } from "../../../DTO/ProductDTO";
+import { ProductDTO } from "../../DTO/ProductDTO";
 
 import {
   Container,
@@ -24,7 +24,7 @@ import {
   Button,
   ButtonText,
 } from "./styles";
-import { ControlledInput } from "./ControlledInput";
+import { ControlledInput } from "../ControlledInput";
 
 
 interface Props {
@@ -40,7 +40,7 @@ export function EditProduct({ product, closeModal }: Props) {
   const theme = useTheme();
 
   const schema = yup.object().shape({
-    name: yup.string().default(product.nome).required("Campo Obrigatório"),
+    nome: yup.string().default(product.nome).required("Campo Obrigatório"),
     estoque: yup
       .number()
       .default(product.estoque)
@@ -84,8 +84,8 @@ export function EditProduct({ product, closeModal }: Props) {
             <Label>Nome</Label>
             <ControlledInput
               control={control}
-              name="name"
-              error={errors.name}
+              name="nome"
+              error={errors.nome}
               defaultValue={product.nome}
             />
           </ContentWrap>

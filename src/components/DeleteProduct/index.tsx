@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../../Context/ProductContextAPI";
+import { useProduct } from "../../Context/ProductContextAPI";
 
 import {
   Container,
