@@ -1,7 +1,3 @@
-
-
-  
- 
 </p>
 <h1 align="center">
 	React Native Challenge 20200810
@@ -42,7 +38,6 @@ Projeto desenvolvido durante a avaliação para o teste de Desenvolvedor React N
   - [x] Editar
   - [x] Apagar
 
-
 ## 🚀 Como executar o projeto
 
 Este projeto é divido em duas partes:
@@ -58,6 +53,8 @@ Primeiro, você precisa ter o <kbd>[NodeJS](https://nodejs.org/en/download/)</kb
 
 Após ter o **Node** instalado, instale as dependências
 
+ACESSE O DIRETORIO onde você baixou e decompactou o zip/clone sysconsultbackendOK e siga:
+
 ```sh
 # Instale as dependencias:
 $ npm install
@@ -69,7 +66,7 @@ $ npm run dev
 ```
 
 ### Se tudo correu bem, agora você estará com seu backend funcionando perfeitamente!
-### o banco de dados está hospedado na nuvem e está pre carregado com informações com algumas informações
+### O banco de dados está hospedado na nuvem e está pre carregado com algumas informações
 
 #
 
@@ -77,7 +74,9 @@ $ npm run dev
 
 ---
 
-Primeiro, você precisa ter o <kbd>[EXPO](https://expo.dev)</kbd> instalado na sua máquina. 
+Primeiro, você precisa ter o <kbd>[EXPO](https://expo.dev)</kbd> instalado na sua máquina.
+
+Uma vez instalado ACESSE O DIRETORIO onde você baixou e decompactou o zip/clone sysconsultmobile
 
 Após ter o **React Native (Expo)** instalado, instale as dependências do **React Native (Expo)**, utilizando os comandos:
 
@@ -110,28 +109,16 @@ export { api };
 $ expo start
 ```
 
+🚧 O computador que está executando o EXPO deve está na mesma rede que o celular que está executando o EXPO GO (via Wifi)
+## ----
+ 
 ### Se tudo correu bem, agora você estará com seu aplicativo funcionando perfeitamente!
 
 ### Baixe o arquivo expo go e scaneie o QRCODE com seu celular para acessar o app!
 
-#### 🎲 Utilizando o Backend (servidor)
-
-O servidor está hospedado no Heroku pode ser acessado clicando [aqui](https://api-betruck.herokuapp.com/)
-
-A [Documentação da API](https://api-betruck.herokuapp.com/swagger-ui.html) foi produzida utlizando conceito [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) na sua mais nova versão [(v3)](https://github.com/OAI/OpenAPI-Specification)
-
-
-#### 🧭 Rodando a aplicação Mobile 
-- Acessar o [link](https://expo.dev/@lucassantosdasilva1/BETRUCKAPP) expo e visualizar o QRcode do app online. 
-
-- Após ler o QRcode ele vai abrir automaticamente o expo go em seu smartphone com o app em funcionamento
-
-
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
-
-#### **Server**  ([Spring](https://spring.io/projects/spring-framework)  +  [Java](https://docs.oracle.com/en/java/))
 
   - **Express**
   - **CORS**
