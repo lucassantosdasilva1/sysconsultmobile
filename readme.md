@@ -51,19 +51,16 @@ Este projeto é divido em duas partes:
 
 💡O Mobile precisa que o Backend esteja sendo executado para funcionar (No nosso caso localhost).
 
-### Pré-requisitos - NodeJS
+### 🎲 Iniciando o projeto - NodeJS
 
 
 Primeiro, você precisa ter o <kbd>[NodeJS](https://nodejs.org/en/download/)</kbd> instalado na sua máquina. 
 
-Após ter o **Node** instalado, instale as dependências do **React e React Native (Expo)** de forma global, utilizando os comandos:
+Após ter o **Node** instalado, instale as dependências
 
 ```sh
-# React:
-$ npm install create-react-app -g
-
-# Expo (React Native):
-$ npm install -g expo-cli 
+# Instale as dependencias:
+$ npm install
 ```
 
 ### Tudo certo agora rode o comando
@@ -72,13 +69,50 @@ $ npm run dev
 ```
 
 ### Se tudo correu bem, agora você estará com seu backend funcionando perfeitamente!
-# --- o banco de dados na nuvem tem que configurar  --
+### o banco de dados está hospedado na nuvem e está pre carregado com informações com algumas informações
+
+#
+
+### Pré-requisitos - React native
+
+---
+
+Primeiro, você precisa ter o <kbd>[EXPO](https://expo.dev)</kbd> instalado na sua máquina. 
+
+Após ter o **React Native (Expo)** instalado, instale as dependências do **React Native (Expo)**, utilizando os comandos:
+
+```sh
+# Instale as dependencias:
+$ npm install
+```
+
+### Apenas um ultimo detalhe para ficar tudo pronto
+- #### Acesse a pasta service e o arquivo api.ts. Altere a linha onde recebe o ip local da máquina
+```sh
+import axios from "axios";
+
+#ALTERE O IP BASE PARA O IP DA SUA MAQUINA
+ const api = axios.create({ baseURL: "http://IP.DA.SUA.MAQ:3333" });
+
+export { api };
+
+```
 
 
-### Pré-requisitos - mobile
 
-Antes de começar, você vai precisar ter instalado e acessar a playstore pára baixar o expo go. 
 
+
+
+
+
+### Tudo certo agora rode o comando
+```
+$ expo start
+```
+
+### Se tudo correu bem, agora você estará com seu aplicativo funcionando perfeitamente!
+
+### Baixe o arquivo expo go e scaneie o QRCODE com seu celular para acessar o app!
 
 #### 🎲 Utilizando o Backend (servidor)
 
@@ -99,23 +133,14 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Server**  ([Spring](https://spring.io/projects/spring-framework)  +  [Java](https://docs.oracle.com/en/java/))
 
--   **JPA**
--   **Hibernate**
--   **Lombok**
--   **OpenAPI**
--   **MySQL Conector**
-
   - **Express**
   - **CORS**
-  - **[KnexJS][knex]**
-  - **[SQLite][sqlite3]**
-  - **[ts-node][tsnode]**
-  - **[dotENV][dotenv]**
-  - **[Multer][multer]**
-  - **[Celebrate][celebrate]**
-  - **[Joi][joi]**
+  - **Sequelize**
+  - **Postgres**
+  - **ts-node**
+  - **dotENV**
 
-> Veja o arquivo  pom.xml
+> Veja o arquivo  package.json
 
 #### **Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
 
@@ -127,16 +152,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Axios](https://github.com/axios/axios)**
 
 > Veja o arquivo  [package.json](https://)
-
-#### [](https://github.com/tgmarinho/Ecoleta#utilit%C3%A1rios)**Utilitários**
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)** 
--   Markdown:  **[StackEdit](https://stackedit.io/)**,  **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
-
--   Consultas e DBA: **[BeeKeeper Studio](https://www.beekeeperstudio.io)**
--   Teste de API:  **[Insomnia](https://insomnia.rest/)**
--   Ícones:  **[Feather Icons](https://feathericons.com/)**,  **[Font Awesome](https://fontawesome.com/)**
--   Fontes:  **[Ubuntu](https://fonts.google.com/specimen/Ubuntu)**,  **[Roboto](https://fonts.google.com/specimen/Roboto)**
-
 
 ---
 
